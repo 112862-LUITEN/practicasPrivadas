@@ -1,0 +1,34 @@
+.filtros {
+  display: flex;
+  flex-direction: column;
+}
+
+.filtrosDinam{
+  display: flex;
+  justify-content: space-around;
+}
+
+.filtrosNoFecha{
+  width:30% ;
+}
+
+.fechas{
+  display: flex;
+  justify-content: space-around;
+}
+
+.tipoFecha{
+  width: 30%;
+}
+
+.fechaDesde{
+  width:30% ;
+}
+
+.fechaHasta{
+  width: 30%;
+}
+
+
+
+

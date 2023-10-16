@@ -1,0 +1,158 @@
+/* .titulos{
+  display: flex;
+  flex-direction: row;
+} */
+html,
+body { height: 100%;
+}
+.odd{
+  background-color: #c1c1c1;
+}
+
+.even{
+  background-color: #32a4a0;
+}
+
+.headerTitulos{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnExcel{
+  background-color: #008F87;
+  margin-right: 2vh;
+  margin-bottom: 3px;
+}
+
+.botonera{
+  display: grid;
+  grid-template-areas: "1 2 3 4";
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 30% 30% 30% 10%;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnDescargar{
+  
+  margin-top: 1.5vh;
+  margin-left: -5vh;
+}
+
+
+.parent {
+height: 200px;
+background: #CCCCCC;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.child {
+background-color: #FFFF00;
+width: 100px;
+height: 100px;
+}
+.historico{
+  grid-area: 2/0/3/5;
+}
+
+.editar{
+
+}
+
+.pdfIcon{
+  
+}
+
+.boxed {
+  border: 1px solid green ;
+}
+.BtnDeudores{
+  grid-area: 2/3/2;
+}
+.BtnComprobantes{
+  grid-area: 2/2/2;
+}
+.plantilla {
+  position: block;
+  left: 17%;
+  right: 15%;
+  top: 110px;
+  z-index: 2;
+  background: ghostwhite;
+}
+.body{
+  background-color: #008F87;
+}
+.columnas{
+  left: 0.1px;
+  background: white;
+  z-index: 4;
+  height: inherit;
+  padding-top: 35px;
+  margin-top: 3px;
+}
+.boxDevolver{
+  margin-right: 10px;
+  height: 0.7cm;
+  width: 0.7cm;
+  grid-area: 1/2/1/1;
+}
+.ChkbxDevolver{
+  /* position: relative;
+  right: 25%;
+  border-radius: 60px;
+  height: 40px;
+  color: black;
+  background-color: transparent;
+  display: flex;
+  top: 20px; */
+  position: inherit;
+  display: flex;
+}
+.BtnDevolver{
+  /* position: relative;
+  right: 25%;
+  border-radius: 60px;
+  height: 40px;
+  color: white;
+  background-color: forestgreen;
+  top: 12px;
+  display: block; */
+  display :flex;
+  position: inherit;
+  
+}
+
+.sep{
+  width: 50%;
+}
+.listaEstados{
+  position: inherit;
+  width: 100%;
+  grid-area: 2/1/3;
+}
+:host ::ng-deep cards-generic .btnes{
+  display: contents ;
+  width: 100% ;
+  /*display: flex;
+   align-self: flex-end;
+
+  justify-self: flex-end; */
+  
+}
+
+.watermark {
+  color: #85899b;
+  display: block;
+  padding: 10px 10px 10px 22px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  max-height: 100px;
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}

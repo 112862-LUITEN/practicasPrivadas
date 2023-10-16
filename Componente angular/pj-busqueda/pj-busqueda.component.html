@@ -1,0 +1,50 @@
+<!-- <button mat-raised-button (click)="openDialog()">Modal</button> -->
+<div class="filtros">
+  <!-- <span class="tituloTabla">Filtrar por: </span> -->
+  <div class=filtrosDinam>
+    <ng-container *ngFor="let filtro of filtros">
+      <mat-form-field class="filtrosNoFecha">
+        <input matInput [(ngModel)]="filtro.valor" placeholder="{{filtro.campo.replace('_', ' ')}}"
+        (keyup)="Filtrar($event.key)" id="campoFiltro">
+      </mat-form-field>
+    </ng-container>
+  </div>
+
+  <div class="fechas">
+    <mat-form-field class="tipoFecha">
+      <mat-label>Tipo de fecha</mat-label>
+      <mat-select [(ngModel)]="selectedDateType" (ngModelChange)="Filtrar('')">
+        <mat-option value="N/A"></mat-option>
+        <mat-option value="Fecha De Carga">Fecha de carga</mat-option>
+        <mat-option value="Fecha De Mora">Fecha de mora</mat-option>
+        <mat-option value="Fecha De Emision">Fecha de emisión</mat-option>
+        <mat-option value="Fecha Asignación">Fecha asignación</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="fechaDesde">
+      <mat-label>Fecha desde</mat-label>
+      <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="datePickerStart" (dateChange)="onStartDateChange()" />
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="fechaHasta">
+      <mat-label>Fecha hasta</mat-label>
+      <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="datePickerEnd" (dateChange)="onEndDateChange()" />
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="search-container">
+  <span>Filtrar títulos por: </span>
+  <input type="text" [(ngModel)]="caratula" (input)="onValorIngresado()" placeholder="Carátula">
+  <span>---</span>
+  <input type="text" [(ngModel)]="ubicacion" (input)="onValorIngresado()" placeholder="Ubicación">
+</div> -->

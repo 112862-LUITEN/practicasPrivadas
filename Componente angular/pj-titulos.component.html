@@ -1,0 +1,65 @@
+<div class="contenedorPrincipal">
+  <div class="columnas">
+    <mini-filter [modo]="'normal'" (onFilter)="filterevent($event);"></mini-filter>
+    <app-pj-busqueda [data]="titulos" [filtros]="filtros"></app-pj-busqueda>
+  </div>
+  <div *ngIf="!reRender">
+    <div class="plantilla">
+      <div class="headerTitulos">
+        <h4>Títulos de deuda asignados</h4>
+        <button mat-raised-button class="btnExcel" (click)="exportarExcel()">Exportar a Excel</button>
+      </div>
+      <div class="scroleable">
+        <ng-container *ngFor="let titulo of tablaI.filteredData; let i= index">
+          <div [ngClass]="i%2 == 0 ? 'even' : 'odd'">
+            <cards-generic *ngIf="titulo.visible === true" [data]="titulo" [filasOcultas]="ocultas" class="titulos"
+              [titulo]="{ tablename: 'Título Nro: ', value: titulo.titulo}">
+              <div class="containerBtnes">
+                <div class="botonera">
+                  <label class="ChkbxDevolver" title={{titulo.observacion_devolucion}}>
+                    <input mat-raised-button type="checkbox" [checked]="titulo.para_devolucion[0]==='S'"
+                      [disabled]="titulo.para_devolucion[0]==='S'" class="boxDevolver" (click)="Devolver($event,titulo)">
+                    Devolver
+                  </label>
+                  <!-- <button mat-raised-button (click)="agregarObservacion(titulo)">Observaciones</button> -->
+                  <button mat-raised-button (click)="agregarAnotacion(titulo)">Observaciones</button>
+                  <button mat-raised-button class="historico" (click)="historico(titulo)">Histórico</button>
+                  <mat-form-field class="listaEstados" appearance="outline">
+                    <mat-label>Estado</mat-label>
+                    <mat-select value="{{ titulo.estado_ }}" [disabled]="titulo.para_devolucion === 'SI'"
+                      (openedChange)="abrirListbox(titulo.estado_, titulo)"
+                      (selectionChange)="cambiar($event, titulo, i)">
+                      <mat-option *ngFor="let option of estadoOptions" [value]="option.value"
+                        [disabled]="isOptionDisabled(option.value, titulo.estado_,i)"
+                        [matTooltip]="getTooltip(option.value)">
+                        {{ option.label }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+
+
+                  <button mat-raised-button class="BtnComprobantes"
+                    (click)="mostrarComprobantes(titulo)">Comprobantes</button>
+                  <button mat-raised-button class="BtnDeudores" (click)="mostrarDeudores(titulo)">Deudores</button>
+                  <label>
+                    <div class="btnDescargar" (click)="descargarPDF(titulo)" class="pdfIcon">
+                      <img src="../../../assets/icons/pdf-icon.svg" alt="SVG Image" width="50" height="50">
+                    </div>
+                  </label>
+                  <!-- <button  class="btn btn-info editar" (click)="reRenderizar()" >
+                  <img src="../../../assets/icons/edit-icon.svg" alt="editar" />
+                </button> -->
+
+                </div>
+              </div>
+            </cards-generic>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="watermark">
+    {{watermark}}
+  </div>
+</div>
